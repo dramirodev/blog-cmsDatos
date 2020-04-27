@@ -24,7 +24,6 @@ function SEO({description, lang, meta, title}) {
       }
     `,
   );
-  console.log(site);
 
   const metaDescription = description || site.siteMetadata.description;
 
@@ -79,6 +78,10 @@ function SEO({description, lang, meta, title}) {
           rel: 'stylesheet',
           href:
             'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
         },
       ]}
     />

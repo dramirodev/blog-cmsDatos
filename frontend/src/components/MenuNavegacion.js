@@ -86,8 +86,8 @@ const Nav = ({location}) => {
   //   query {
   //     logo: file(relativePath: {eq: "david.png"}) {
   //       childImageSharp {
-  //         fluid(maxWidth: 200) {
-  //           ...GatsbyImageSharpFluid
+  //         fixed(width: 50) {
+  //           ...GatsbyImageSharpFixed
   //         }
   //       }
   //     }
@@ -98,7 +98,7 @@ const Nav = ({location}) => {
     <BarraNavegacion>
       {/* {location.pathname !== '/' && (
         <AvatarNavegacion
-          fluid={logo.childImageSharp.fluid}
+          fluid={logo.childImageSharp.fixed}
           alt="Avatar barra de navegación"
         />
       )} */}

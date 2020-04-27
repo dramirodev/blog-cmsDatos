@@ -78,7 +78,7 @@ const Layout = props => {
       <SEO />
       <Header location={props.location} />
       <main>
-        <div class="container">{props.children}</div>
+        <div className="container">{props.children}</div>
       </main>
     </>
   );

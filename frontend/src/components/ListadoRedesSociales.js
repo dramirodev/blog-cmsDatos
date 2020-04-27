@@ -69,14 +69,17 @@ const Icon = styled.i`
 
 const ListadoRedesSociales = () => (
   <ContendorRedesSociales>
-    <ContenedorIcon>
-      <Icon className="fab fa-linkedin-in"></Icon>
+    <ContenedorIcon
+      href="https://www.linkedin.com/in/dramirobarragan/"
+      target="_blank"
+    >
+      <Icon className="fab fa-linkedin-in" />
     </ContenedorIcon>
-    <ContenedorIcon class="icon" href="#">
-      <Icon className="fab fa-twitter"></Icon>
+    <ContenedorIcon href="https://twitter.com/dramirobarragan" target="_blank">
+      <Icon className="fab fa-twitter" />
     </ContenedorIcon>
-    <ContenedorIcon class="icon" href="#">
-      <Icon className="fab fa-github-alt"></Icon>
+    <ContenedorIcon href="https://github.com/DavidRamiroBarragan" target="_blank">
+      <Icon className="fab fa-github-alt" />
     </ContenedorIcon>
   </ContendorRedesSociales>
 );

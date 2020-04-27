@@ -105,12 +105,12 @@ const Nav = ({location}) => {
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>
-      <NavItem to="/blog" activeClassName={'pagina-actual'}>
+      {/* <NavItem to="/blog" activeClassName={'pagina-actual'}>
         Blog
       </NavItem>
       <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
         Sobre mi
-      </NavItem>
+      </NavItem> */}
     </BarraNavegacion>
   );
 };

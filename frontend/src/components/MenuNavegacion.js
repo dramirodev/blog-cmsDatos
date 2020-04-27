@@ -82,26 +82,26 @@ const AvatarNavegacion = styled(Image)`
 `;
 
 const Nav = ({location}) => {
-  const {logo} = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: {eq: "david.png"}) {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+  // const {logo} = useStaticQuery(graphql`
+  //   query {
+  //     logo: file(relativePath: {eq: "david.png"}) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 200) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <BarraNavegacion>
-      {location.pathname !== '/' && (
+      {/* {location.pathname !== '/' && (
         <AvatarNavegacion
           fluid={logo.childImageSharp.fluid}
           alt="Avatar barra de navegación"
         />
-      )}
+      )} */}
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>

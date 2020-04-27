@@ -11,7 +11,7 @@ import SEO from './seo';
 import {Global, css} from '@emotion/core';
 import Header from './Header';
 
-const Layout = ({children}) => {
+const Layout = props => {
   return (
     <>
       <Global
@@ -72,13 +72,14 @@ const Layout = ({children}) => {
             display: flex;
             justify-content: center;
             align-items: center;
-            /* height: calc(100vh - 4.4rem); */
           }
         `}
       />
       <SEO />
-      <Header />
-      <main>{children}</main>
+      <Header location={props.location} />
+      <main>
+        <div class="container">{props.children}</div>
+      </main>
     </>
   );
 };

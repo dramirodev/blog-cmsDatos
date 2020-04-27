@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Moonlight II Italic",
+    "workbench.preferredDarkColorTheme": "Moonlight II Italic",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.labelFormat": "medium",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 5
+}

@@ -35,6 +35,10 @@
     "categoria": {
       "model": "categoria",
       "via": "articulos"
+    },
+    "resumen": {
+      "type": "string",
+      "required": true
     }
   }
 }

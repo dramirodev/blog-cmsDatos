@@ -1,11 +1,15 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import {Link, useStaticQuery, graphql} from 'gatsby';
 import styled from '@emotion/styled';
+import Image from 'gatsby-image';
+import {css} from '@emotion/core';
 
 const BarraNavegacion = styled.nav`
   display: flex;
+  align-items: center;
   justify-content: center;
   max-width: 60rem;
+  min-width: 30rem;
   padding: 1rem 2rem;
 
   @media (min-width: 468px) {
@@ -19,8 +23,7 @@ const NavItem = styled(Link)`
   text-transform: capitalize;
   transition: all 0.5s;
   font-size: 1.4rem;
-  padding: 5px 10px;
-  line-height: 1;
+  padding: 0px 10px;
   color: #272727;
 
   &:hover {
@@ -73,14 +76,41 @@ const NavItem = styled(Link)`
   }
 `;
 
-const Nav = () => {
+const AvatarNavegacion = styled(Image)`
+  width: 5rem;
+  margin-right: 1rem;
+`;
+
+const Nav = ({location}) => {
+  const {logo} = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: {eq: "david.png"}) {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <BarraNavegacion>
+      {location.pathname !== '/' && (
+        <AvatarNavegacion
+          fluid={logo.childImageSharp.fluid}
+          alt="Avatar barra de navegación"
+        />
+      )}
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>
-      <NavItem to="/blog">Blog</NavItem>
-      <NavItem to="/sobre-mi">Sobre mi</NavItem>
+      <NavItem to="/blog" activeClassName={'pagina-actual'}>
+        Blog
+      </NavItem>
+      <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
+        Sobre mi
+      </NavItem>
     </BarraNavegacion>
   );
 };

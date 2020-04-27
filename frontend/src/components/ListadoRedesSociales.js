@@ -32,8 +32,8 @@ const ContenedorIcon = styled.a`
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 3.6rem;
-  height: 3.6rem;
+  min-width: 3.6rem;
+  min-height: 3.6rem;
   background-color: #f1f1f1;
   border-radius: 30%;
   margin-top: 2rem;
@@ -78,7 +78,10 @@ const ListadoRedesSociales = () => (
     <ContenedorIcon href="https://twitter.com/dramirobarragan" target="_blank">
       <Icon className="fab fa-twitter" />
     </ContenedorIcon>
-    <ContenedorIcon href="https://github.com/DavidRamiroBarragan" target="_blank">
+    <ContenedorIcon
+      href="https://github.com/DavidRamiroBarragan"
+      target="_blank"
+    >
       <Icon className="fab fa-github-alt" />
     </ContenedorIcon>
   </ContendorRedesSociales>

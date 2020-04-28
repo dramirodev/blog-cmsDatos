@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import ListadoRedesSociales from '../components/ListadoRedesSociales';
 import {css} from '@emotion/core';
 
-export const articuloData = graphql`
+export const paginaData = graphql`
   query($id: String!) {
     allDatoCmsPagina(filter: {id: {eq: $id}}) {
       paginas: nodes {
@@ -50,17 +50,17 @@ const DateParrafo = styled.p`
   margin-top: -1.4rem;
 `;
 
-const Articulo = ({location, data}) => {
-  const articulo = data.allDatoCmsPagina.paginas[0];
+const Paginas = ({location, data}) => {
+  const pagina = data.allDatoCmsPagina.paginas[0];
 
   return (
     <Layout location={location}>
       <ContenedorBlog>
-        <AticuloTitle>{articulo.titulo}</AticuloTitle>
-        <DateParrafo>{articulo.meta.createdAt}</DateParrafo>
+        <AticuloTitle>{pagina.titulo}</AticuloTitle>
+        <DateParrafo>{pagina.meta.createdAt}</DateParrafo>
         <div
           dangerouslySetInnerHTML={{
-            __html: articulo.contenidoNode.childMarkdownRemark.html,
+            __html: pagina.contenidoNode.childMarkdownRemark.html,
           }}
         />
         <div
@@ -77,4 +77,4 @@ const Articulo = ({location, data}) => {
   );
 };
 
-export default Articulo;
+export default Paginas;

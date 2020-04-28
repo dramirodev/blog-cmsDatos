@@ -7,7 +7,7 @@ import {TituloArticulo, ContenedorBlog, DateParrafo} from '../styles/styles';
 
 const Blog = ({location}) => {
   const articulos = useArticulos();
-  console.log('articulos :>> ', articulos);
+
   return (
     <Layout location={location}>
       <SEO title="Blog" />

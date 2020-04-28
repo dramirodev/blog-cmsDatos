@@ -110,16 +110,16 @@ const Nav = ({location}) => {
       </NavItem>
       {totalArticulos.totalCount > 0 && (
         <NavItem
-          to="/blog/"
+          to="/blog"
           activeClassName={'pagina-actual'}
           partiallyActive={true}
         >
           Blog
         </NavItem>
       )}
-      {/* <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
+      <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
         Sobre mi
-      </NavItem> */}
+      </NavItem>
     </BarraNavegacion>
   );
 };

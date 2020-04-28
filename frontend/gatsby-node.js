@@ -16,6 +16,13 @@ exports.createPages = async ({actions, graphql, reporter}) => {
           titulo
         }
       }
+
+      paginas: allDatoCmsPagina {
+        nodes {
+          id
+          titulo
+        }
+      }
     }
   `);
 
@@ -26,9 +33,20 @@ exports.createPages = async ({actions, graphql, reporter}) => {
   // Si hay resultados generar los archivos estáticos
 
   const articulos = resultado.data.allDatoCmsArticulo.nodes;
+  const paginas = resultado.data.paginas.nodes;
+
+  // crear templates para paginas
+  paginas.forEach(pagina => {
+    actions.createPage({
+      path: urlSlug(pagina.titulo),
+      component: require.resolve('./src/templates/Paginas.js'),
+      context: {
+        id: pagina.id,
+      },
+    });
+  });
 
   // Crear templates de articulos
-
   articulos.forEach(articulo => {
     actions.createPage({
       path: `/blog/${urlSlug(articulo.titulo)}`,

@@ -2,6 +2,8 @@ import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import styled from '@emotion/styled';
+import ListadoRedesSociales from '../components/ListadoRedesSociales';
+import {css} from '@emotion/core';
 
 export const articuloData = graphql`
   query($id: String!) {
@@ -29,8 +31,9 @@ export const articuloData = graphql`
 
 const ContenedorBlog = styled.div`
   margin-top: 6rem;
-  text-align: left !important;
+  text-align: left;
   width: 100%;
+  margin-bottom: 2rem;
 `;
 
 const AticuloTitle = styled.h1`
@@ -60,6 +63,15 @@ const Articulo = ({location, data}) => {
             __html: articulo.contenidoNode.childMarkdownRemark.html,
           }}
         />
+        <div
+          css={css`
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          `}
+        >
+          <ListadoRedesSociales />
+        </div>
       </ContenedorBlog>
     </Layout>
   );

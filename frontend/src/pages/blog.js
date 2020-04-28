@@ -2,31 +2,8 @@ import React, {useState} from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import useArticulos from '../hooks/useArticulos';
-import styled from '@emotion/styled';
-import {Link} from 'gatsby';
 import urlSlug from 'url-slug';
-
-const TituloArticulo = styled(Link)`
-  font-family: 'Montserrat', sans-serif;
-  color: #0092db;
-  font-weight: 900;
-  font-size: 4rem;
-  display: block;
-`;
-
-const ContenedorBlog = styled.div`
-  margin-top: 6rem;
-  text-align: left !important;
-  width: 100%;
-`;
-
-const DateParrafo = styled.p`
-  font-size: 1.35rem;
-  line-height: 1.75rem;
-  display: block;
-  margin-bottom: 1.75rem;
-  margin-top: -1.4rem;
-`;
+import {TituloArticulo, ContenedorBlog, DateParrafo} from '../styles/styles';
 
 const Blog = ({location}) => {
   const articulos = useArticulos();

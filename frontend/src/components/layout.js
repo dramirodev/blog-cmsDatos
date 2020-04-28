@@ -19,7 +19,10 @@ const Layout = props => {
           html {
             font-size: 62.5%;
             box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+            letter-spacing: 0.015em;
+            word-spacing: 0.001em;
+            -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+            -moz-osx-font-smoothing: grayscale; /* Firefox */
           }
 
           body {
@@ -49,7 +52,7 @@ const Layout = props => {
           }
 
           h3 {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Oswald', sans-serif;
           }
 
           ul {

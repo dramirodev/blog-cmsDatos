@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'davidramiro.com',
-    description: 'Blog personal diseñado utilizando React, Gatsby y Strapi',
+    description: 'Blog personal diseñado utilizando React Gatsby ',
+    siteUrl: 'https://www.davidramiro.com',
     author: 'M. David Ramiro',
   },
   plugins: [
@@ -19,8 +20,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Blog de David Ramiro',
+        short_name: 'davidramiro.com',
+        lang: 'es',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
@@ -37,6 +39,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/*'],
+        },
+      },
+    },
   ],
 };

@@ -19,12 +19,16 @@ const Layout = props => {
           html {
             font-size: 62.5%;
             box-sizing: border-box;
+            letter-spacing: 0.015em;
+            word-spacing: 0.001em;
+            -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+            -moz-osx-font-smoothing: grayscale; /* Firefox */
           }
 
           body {
             font-size: 1.6rem;
             line-height: 2;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Oswald', sans-serif;
             color: #272727;
           }
 
@@ -43,12 +47,12 @@ const Layout = props => {
 
           h1,
           h2 {
-            font-family: 'Monserrat', sans-serif;
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
           }
 
           h3 {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Oswald', sans-serif;
           }
 
           ul {

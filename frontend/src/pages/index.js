@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
@@ -43,41 +43,38 @@ const StyledLinkBio = styled.a`
   }
 `;
 
+const InicioName = styled.h1`
+  font-size: 2rem;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+`;
+
 const IndexPage = props => {
   const {logo} = useStaticQuery(graphql`
     query {
       logo: file(relativePath: {eq: "david.png"}) {
         childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 150) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
     }
   `);
 
-  const [showBio, setShowBio] = useState(false);
-
   return (
     <Layout location={props.location}>
       <SEO title="Inicio" />
       <div className="container">
         <WrapperInfoUsuario>
-          <StyledLink onClick={() => setShowBio(!showBio)} showBio={showBio}>
+          <StyledLink>
             <AvatarInicio
-              fluid={logo.childImageSharp.fluid}
+              fixed={logo.childImageSharp.fixed}
               alt="Avatar Inicio"
             />
           </StyledLink>
-          <h1
-            css={css`
-              font-size: 2rem;
-              font-weight: bold;
-              margin: 0;
-            `}
-          >
-            M. David Ramiro
-          </h1>
+          <InicioName>M. David Ramiro</InicioName>
           <p
             css={css`
               font-weight: bold;

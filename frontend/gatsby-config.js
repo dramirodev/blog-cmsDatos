@@ -14,18 +14,6 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    {
-      resolve: 'gatsby-source-strapi',
-      options: {
-        apiURL: process.env.API_URL || 'http://localhost:1337',
-        contentTypes: [
-          // List of the Content Types you want to be able to request from Gatsby.
-          'articulo',
-          'categoria',
-        ],
-        queryLimit: 1000,
-      },
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -39,6 +27,15 @@ module.exports = {
         display: 'minimal-ui',
       },
     },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: `2c58d65eedb1dd15701f5c959860d6`,
+        previewMode: false,
+        disableLiveReload: false,
+      },
+    },
+    `gatsby-transformer-remark`,
     'gatsby-plugin-offline',
   ],
 };

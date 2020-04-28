@@ -19,12 +19,13 @@ const Layout = props => {
           html {
             font-size: 62.5%;
             box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
           }
 
           body {
             font-size: 1.6rem;
             line-height: 2;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Oswald', sans-serif;
             color: #272727;
           }
 
@@ -43,8 +44,8 @@ const Layout = props => {
 
           h1,
           h2 {
-            font-family: 'Monserrat', sans-serif;
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
           }
 
           h3 {
@@ -78,7 +79,7 @@ const Layout = props => {
       <SEO />
       <Header location={props.location} />
       <main>
-        <div class="container">{props.children}</div>
+        <div className="container">{props.children}</div>
       </main>
     </>
   );

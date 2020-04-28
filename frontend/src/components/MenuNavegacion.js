@@ -2,7 +2,6 @@ import React from 'react';
 import {Link, useStaticQuery, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
-import {css} from '@emotion/core';
 
 const BarraNavegacion = styled.nav`
   display: flex;
@@ -25,6 +24,7 @@ const NavItem = styled(Link)`
   font-size: 1.4rem;
   padding: 0px 10px;
   color: #272727;
+  letter-spacing: 1px;
 
   &:hover {
     background-color: #0092db;
@@ -82,7 +82,7 @@ const AvatarNavegacion = styled(Image)`
 `;
 
 const Nav = ({location}) => {
-  const {logo} = useStaticQuery(graphql`
+  const {logo, totalArticulos} = useStaticQuery(graphql`
     query {
       logo: file(relativePath: {eq: "david.png"}) {
         childImageSharp {
@@ -90,6 +90,9 @@ const Nav = ({location}) => {
             ...GatsbyImageSharpFluid
           }
         }
+      }
+      totalArticulos: allDatoCmsArticulo {
+        totalCount
       }
     }
   `);
@@ -105,10 +108,16 @@ const Nav = ({location}) => {
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>
-      {/* <NavItem to="/blog" activeClassName={'pagina-actual'}>
-        Blog
-      </NavItem>
-      <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
+      {totalArticulos.totalCount > 0 && (
+        <NavItem
+          to="/blog/"
+          activeClassName={'pagina-actual'}
+          partiallyActive={true}
+        >
+          Blog
+        </NavItem>
+      )}
+      {/* <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
         Sobre mi
       </NavItem> */}
     </BarraNavegacion>

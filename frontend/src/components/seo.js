@@ -72,7 +72,7 @@ function SEO({description, lang, meta, title}) {
         {
           rel: 'stylesheet',
           href:
-            'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap',
+            'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
         },
         {
           rel: 'stylesheet',
@@ -98,7 +98,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default SEO;

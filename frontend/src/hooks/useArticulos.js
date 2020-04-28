@@ -1,21 +1,35 @@
 import {graphql, useStaticQuery} from 'gatsby';
 
 const useArticulos = () => {
-  const datos = useStaticQuery(graphql`
-    query {
-      articulos: allStrapiArticulo {
-        nodes {
-          publicado
-          titulo
-          contenido
-          id
-          resumen
+  const articulos = useStaticQuery(graphql`
+    {
+      articulos: allDatoCmsArticulo {
+        edges {
+          node {
+            categoria
+            contenidoNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+            id
+            titulo
+            resumen
+            meta {
+              createdAt(formatString: "DD-MMMM-YYYY", locale: "es")
+            }
+            imagen {
+              fluid {
+                srcSet
+              }
+            }
+          }
         }
       }
     }
   `);
 
-  return datos.articulos.nodes;
+  return articulos.articulos.edges;
 };
 
 export default useArticulos;

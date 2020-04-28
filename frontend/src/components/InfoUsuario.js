@@ -57,6 +57,20 @@ const InfoUsuario = () => {
         para poder entender a esos locos desarrolladores backend. 😉
       </p>
       <ListadoRedesSociales />
+      <p
+        css={css`
+          font-size: 12px;
+          margin-top: 1rem;
+        `}
+      >
+        Logo diseñado por{' '}
+        <StyledLinkBio
+          href="https://www.behance.net/cocotaloco"
+          target="_blank"
+        >
+          Claudia Casanova
+        </StyledLinkBio>
+      </p>
     </WrapperInfoUsuario>
   );
 };

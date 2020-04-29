@@ -27,7 +27,7 @@ const ContendorRedesSociales = styled.div`
     width: 50%;
   }
 `;
-const ContenedorIcon = styled.a`
+const ContenedorIcon = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +40,7 @@ const ContenedorIcon = styled.a`
   color: #272727;
   overflow: hidden;
   cursor: pointer;
+  border: none;
 
   &:hover i {
     transform: scale(1.3);

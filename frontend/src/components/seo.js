@@ -9,8 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 import {useStaticQuery, graphql} from 'gatsby';
+import {useLocation} from '@reach/router';
 
-function SEO({description, lang, meta, title, image: metaImage, pathname}) {
+function SEO({description, lang, meta, title, image: metaImage}) {
+  const location = useLocation();
   const {site} = useStaticQuery(
     graphql`
       query {
@@ -34,7 +36,7 @@ function SEO({description, lang, meta, title, image: metaImage, pathname}) {
       ? `${site.siteMetadata.siteUrl}${metaImage.src}`
       : null;
 
-  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
+  const canonical = `${site.siteMetadata.siteUrl}${location.pathname}`;
 
   return (
     <Helmet
@@ -42,16 +44,47 @@ function SEO({description, lang, meta, title, image: metaImage, pathname}) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`},
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={
         canonical
           ? [
               {
-                rel: "canonical",
+                rel: 'canonical',
                 href: canonical,
               },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
+              },
             ]
-          : []
+          : [
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
+              },
+            ]
       }
       meta={[
         {
@@ -123,22 +156,6 @@ function SEO({description, lang, meta, title, image: metaImage, pathname}) {
               ],
         )
         .concat(meta)}
-      link={[
-        {
-          rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
-        },
-        {
-          rel: 'stylesheet',
-          href:
-            'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
-        },
-      ]}
     />
   );
 }

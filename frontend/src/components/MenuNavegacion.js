@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, useStaticQuery, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
+import {useLocation} from '@reach/router';
 
 const BarraNavegacion = styled.nav`
   display: flex;
@@ -82,7 +83,8 @@ const AvatarNavegacion = styled(Image)`
   margin-right: 1rem;
 `;
 
-const Nav = ({ location }) => {
+const Nav = () => {
+  const location = useLocation();
 
   const {logo, totalArticulos} = useStaticQuery(graphql`
     query {
@@ -101,12 +103,12 @@ const Nav = ({ location }) => {
 
   return (
     <BarraNavegacion>
-      {location && location.pathname !== '/' ? (
+      {location.pathname !== '/' && (
         <AvatarNavegacion
           fluid={logo.childImageSharp.fluid}
           alt="Avatar barra de navegación"
         />
-      ) : null}
+      )}
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>

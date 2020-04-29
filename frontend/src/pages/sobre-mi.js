@@ -5,7 +5,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import ListadoRedesSociales from '../components/ListadoRedesSociales';
-import {css} from '@emotion/core';
 
 const ContenedorBlog = styled.div`
   margin-top: 6rem;
@@ -51,8 +50,8 @@ const ImagenContainer = styled.div`
   }
 `;
 
-const SobreMi = ({location}) => {
-  const {puente, sentado} = useStaticQuery(graphql`
+const SobreMi = () => {
+  const {puente, sentado, logo} = useStaticQuery(graphql`
     query {
       puente: file(relativePath: {eq: "puente.jpg"}) {
         relativePath
@@ -70,12 +69,16 @@ const SobreMi = ({location}) => {
           }
         }
       }
+
+      logo: file(relativePath: {eq: "david.png"}) {
+        relativePath
+      }
     }
   `);
 
   return (
-    <Layout location={location}>
-      <SEO title="Inicio" />
+    <Layout>
+      <SEO title="Sobre mi" image={logo.relativePath} />
       <ContenedorBlog>
         <AticuloTitle>Sobre mi</AticuloTitle>
         <DateParrafo>29 de Abril de 2020</DateParrafo>

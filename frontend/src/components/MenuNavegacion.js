@@ -99,12 +99,12 @@ const Nav = ({location}) => {
 
   return (
     <BarraNavegacion>
-      {location.pathname !== '/' && (
+      {location && location.pathname !== '/' ? (
         <AvatarNavegacion
           fluid={logo.childImageSharp.fluid}
           alt="Avatar barra de navegación"
         />
-      )}
+      ) : null}
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>
@@ -117,7 +117,11 @@ const Nav = ({location}) => {
           Blog
         </NavItem>
       )}
-      <NavItem to="/sobre-mi" activeClassName={'pagina-actual'}>
+      <NavItem
+        to="/sobre-mi"
+        activeClassName={'pagina-actual'}
+        partiallyActive={true}
+      >
         Sobre mi
       </NavItem>
     </BarraNavegacion>

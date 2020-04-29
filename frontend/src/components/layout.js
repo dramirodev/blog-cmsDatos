@@ -19,10 +19,6 @@ const Layout = props => {
           html {
             font-size: 62.5%;
             box-sizing: border-box;
-            letter-spacing: 0.015em;
-            word-spacing: 0.001em;
-            -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-            -moz-osx-font-smoothing: grayscale; /* Firefox */
           }
 
           body {
@@ -30,6 +26,10 @@ const Layout = props => {
             line-height: 2;
             font-family: 'Oswald', sans-serif;
             color: #272727;
+            letter-spacing: 0.015em;
+            word-spacing: 0.001em;
+            -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+            -moz-osx-font-smoothing: grayscale; /* Firefox */
           }
 
           *,

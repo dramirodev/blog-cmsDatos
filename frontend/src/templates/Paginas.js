@@ -59,6 +59,20 @@ const Paginas = ({location, data}) => {
         <AticuloTitle>{pagina.titulo}</AticuloTitle>
         <DateParrafo>{pagina.meta.createdAt}</DateParrafo>
         <div
+          css={css`
+            p {
+              font-size: 1.6rem;
+              letter-spacing: 0.1rem;
+            }
+
+            img[alt='puente'] {
+              padding: 1rem;
+              border: 1px solid black;
+              max-width: 60%;
+              display: block;
+              margin: 0 auto;
+            }
+          `}
           dangerouslySetInnerHTML={{
             __html: pagina.contenidoNode.childMarkdownRemark.html,
           }}

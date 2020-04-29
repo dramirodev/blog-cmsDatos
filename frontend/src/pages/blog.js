@@ -5,20 +5,20 @@ import useArticulos from '../hooks/useArticulos';
 import urlSlug from 'url-slug';
 import {TituloArticulo, ContenedorBlog, DateParrafo} from '../styles/styles';
 
-const Blog = ({location}) => {
+const Blog = () => {
   const articulos = useArticulos();
 
   return (
-    <Layout location={location}>
+    <Layout>
       <SEO title="Blog" />
       <ContenedorBlog>
         {articulos.map(articulo => (
-          <div key={articulo.node.id}>
-            <TituloArticulo to={`/blog/${urlSlug(articulo.node.titulo)}`}>
-              {articulo.node.titulo}
+          <div key={articulo.id}>
+            <TituloArticulo to={`/blog/${urlSlug(articulo.titulo)}`}>
+              {articulo.titulo}
             </TituloArticulo>
-            <DateParrafo>{articulo.node.meta.createdAt}</DateParrafo>
-            <p>{articulo.node.resumen}</p>
+            <DateParrafo>{articulo.fecha}</DateParrafo>
+            <p>{articulo.resumen}</p>
           </div>
         ))}
       </ContenedorBlog>

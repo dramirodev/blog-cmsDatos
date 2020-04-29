@@ -2,26 +2,25 @@ import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import styled from '@emotion/styled';
+import SEO from '../components/seo';
+import useObtenerImagenDeArticulo from '../hooks/useObtenerImagenDeArticulo';
 
 export const articuloData = graphql`
   query($id: String!) {
-    allDatoCmsArticulo(filter: {id: {eq: $id}}) {
-      articulos: nodes {
-        id
-        titulo
-        contenidoNode {
-          childMarkdownRemark {
-            html
-          }
+    articulo: datoCmsArticulo(id: {eq: $id}) {
+      titulo
+      contenidoNode {
+        childMarkdownRemark {
+          htmlAst
+          html
         }
-        categoria
-        meta {
-          createdAt(locale: "es", formatString: "DD/MM/YYYY")
-        }
-        imagen {
-          fluid {
-            srcSet
-          }
+      }
+      meta {
+        createdAt(locale: "es", formatString: "DD/MM/YYYY")
+      }
+      imagen {
+        fluid {
+          srcSet
         }
       }
     }
@@ -49,11 +48,12 @@ const DateParrafo = styled.p`
 `;
 
 const Articulo = ({location, data}) => {
-  const articulo = data.allDatoCmsArticulo.articulos[0];
-  console.log(data);
+  const articulo = data.articulo;
+  const imagen = useObtenerImagenDeArticulo(articulo);
 
   return (
     <Layout location={location}>
+      <SEO title={articulo.titulo} imagen={imagen} />
       <ContenedorBlog>
         <AticuloTitle>{articulo.titulo}</AticuloTitle>
         <DateParrafo>{articulo.meta.createdAt}</DateParrafo>
@@ -62,7 +62,8 @@ const Articulo = ({location, data}) => {
             __html: articulo.contenidoNode.childMarkdownRemark.html,
           }}
         />
-      </ContenedorBlog>
+      </ContenedorBlog>{' '}
+      */}
     </Layout>
   );
 };

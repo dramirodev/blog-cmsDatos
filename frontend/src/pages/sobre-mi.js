@@ -78,7 +78,14 @@ const SobreMi = () => {
 
   return (
     <Layout>
-      <SEO title="Sobre mi" image={logo.relativePath} />
+      <SEO
+        title="Sobre mi"
+        image={{
+          src: logo.relativePath,
+          height: 155,
+          width: 150,
+        }}
+      />
       <ContenedorBlog>
         <AticuloTitle>Sobre mi</AticuloTitle>
         <DateParrafo>29 de Abril de 2020</DateParrafo>

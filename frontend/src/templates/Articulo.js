@@ -24,6 +24,14 @@ export const articuloData = graphql`
         }
       }
     }
+    logo: file(relativePath: {eq: "david.png"}) {
+      relativePath
+      childImageSharp {
+        fixed(width: 150) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
   }
 `;
 
@@ -48,8 +56,14 @@ const DateParrafo = styled.p`
 `;
 
 const Articulo = ({location, data}) => {
-  const articulo = data.articulo;
-  const imagen = useObtenerImagenDeArticulo(articulo);
+  const {articulo, logo} = data;
+  const imagen = articulo.imagen.fluid
+    ? articulo.imagen.fluid
+    : {
+        src: logo.relativePath,
+        height: 155,
+        width: 150,
+      };
 
   return (
     <Layout location={location}>
@@ -63,7 +77,6 @@ const Articulo = ({location, data}) => {
           }}
         />
       </ContenedorBlog>{' '}
-      */}
     </Layout>
   );
 };

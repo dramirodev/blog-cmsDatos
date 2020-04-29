@@ -5,11 +5,18 @@ const useObtenerImagenDeArticulo = articulo => {
   articulo.contenidoNode.childMarkdownRemark.htmlAst.children.forEach(
     element => {
       if (element.children) {
-        imagen = element.children.filter(child => child.tagName === 'img');
+        imagen = element.children.find(child => {
+          if (child.tagName === 'img') {
+            return true;
+          }
+          return false;
+        });
       }
     },
   );
-  return imagen[0].properties.src;
+  console.log(imagen);
+
+  return imagen.properties.src;
 };
 
 export default useObtenerImagenDeArticulo;

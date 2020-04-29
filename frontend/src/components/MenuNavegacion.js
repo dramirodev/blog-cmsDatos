@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, useStaticQuery, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
+import {useLocation} from '@reach/router';
 
 const BarraNavegacion = styled.nav`
   display: flex;
@@ -26,6 +27,7 @@ const NavItem = styled(Link)`
   padding: 0px 10px;
   color: #272727;
   letter-spacing: 1px;
+  text-decoration: none !important;
 
   &:hover {
     background-color: #0092db;
@@ -82,7 +84,9 @@ const AvatarNavegacion = styled(Image)`
   margin-right: 1rem;
 `;
 
-const Nav = ({location}) => {
+const Nav = () => {
+  const location = useLocation();
+
   const {logo, totalArticulos} = useStaticQuery(graphql`
     query {
       logo: file(relativePath: {eq: "david.png"}) {
@@ -100,12 +104,12 @@ const Nav = ({location}) => {
 
   return (
     <BarraNavegacion>
-      {location && location.pathname !== '/' ? (
+      {location.pathname !== '/' && (
         <AvatarNavegacion
           fluid={logo.childImageSharp.fluid}
           alt="Avatar barra de navegación"
         />
-      ) : null}
+      )}
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>

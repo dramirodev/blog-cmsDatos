@@ -9,8 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 import {useStaticQuery, graphql} from 'gatsby';
+import {useLocation} from '@reach/router';
 
-function SEO({description, lang, meta, title}) {
+function SEO({description, lang, meta, title, image: metaImage}) {
+  const location = useLocation();
   const {site} = useStaticQuery(
     graphql`
       query {
@@ -19,6 +21,9 @@ function SEO({description, lang, meta, title}) {
             title
             description
             author
+            image
+            twitterUsername
+            siteUrl
           }
         }
       }
@@ -26,6 +31,12 @@ function SEO({description, lang, meta, title}) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const image =
+    metaImage && metaImage.src
+      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
+      : null;
+
+  const canonical = `${site.siteMetadata.siteUrl}${location.pathname}`;
 
   return (
     <Helmet
@@ -34,6 +45,47 @@ function SEO({description, lang, meta, title}) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={
+        canonical
+          ? [
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
+              },
+            ]
+          : [
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+              },
+              {
+                rel: 'stylesheet',
+                href:
+                  'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
+              },
+            ]
+      }
       meta={[
         {
           name: `description`,
@@ -60,6 +112,10 @@ function SEO({description, lang, meta, title}) {
           content: site.siteMetadata.author,
         },
         {
+          name: `twitter:creator`,
+          content: site.siteMetadata.author,
+        },
+        {
           name: `twitter:title`,
           content: title,
         },
@@ -67,23 +123,39 @@ function SEO({description, lang, meta, title}) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
-      link={[
         {
-          rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+          name: `twitter:image`,
+          content: site.siteMetadata.image,
         },
-        {
-          rel: 'stylesheet',
-          href:
-            'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
-        },
-      ]}
+      ]
+        .concat(
+          metaImage
+            ? [
+                {
+                  property: 'og:image',
+                  content: image,
+                },
+                {
+                  property: 'og:image:width',
+                  content: metaImage.width,
+                },
+                {
+                  property: 'og:image:height',
+                  content: metaImage.height,
+                },
+                {
+                  name: 'twitter:card',
+                  content: 'summary_large_image',
+                },
+              ]
+            : [
+                {
+                  name: 'twitter:card',
+                  content: 'summary',
+                },
+              ],
+        )
+        .concat(meta)}
     />
   );
 }
@@ -99,6 +171,12 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+  }),
+  pathname: PropTypes.string,
 };
 
 export default SEO;

@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import SEO from './seo';
@@ -64,6 +57,10 @@ const Layout = props => {
           a {
             text-decoration: none;
             color: #003d5c;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
 
           img {
@@ -81,7 +78,7 @@ const Layout = props => {
         `}
       />
       <SEO />
-      <Header location={props.location} />
+      <Header />
       <main>
         <div className="container">{props.children}</div>
       </main>

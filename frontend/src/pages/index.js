@@ -17,8 +17,6 @@ const IndexPage = () => {
       }
     }
   `);
-
-  console.log(logo);
   return (
     <Layout>
       <SEO

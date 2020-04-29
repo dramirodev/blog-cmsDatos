@@ -19,7 +19,14 @@ const IndexPage = () => {
   `);
   return (
     <Layout>
-      <SEO title="Inicio" image={logo.relativePath} />
+      <SEO
+        title="Inicio"
+        image={{
+          src: logo.relativePath,
+          height: 155,
+          width: 150,
+        }}
+      />
       <InfoUsuario logo={logo} />
     </Layout>
   );

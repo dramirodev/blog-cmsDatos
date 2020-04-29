@@ -11,7 +11,7 @@ import {
 } from '../styles/styles';
 
 const InfoUsuario = () => {
-  const {logo, imagen} = useStaticQuery(graphql`
+  const {logo} = useStaticQuery(graphql`
     query {
       logo: file(relativePath: {eq: "david.png"}) {
         childImageSharp {
@@ -22,8 +22,6 @@ const InfoUsuario = () => {
       }
     }
   `);
-
-  console.log('imagen :>> ', imagen);
 
   return (
     <WrapperInfoUsuario>

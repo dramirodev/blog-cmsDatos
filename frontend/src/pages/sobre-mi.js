@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import ListadoRedesSociales from '../components/ListadoRedesSociales';
-import BackgroundImage from 'gatsby-background-image';
+import {css} from '@emotion/core';
 
 const ContenedorBlog = styled.div`
   margin-top: 6rem;
@@ -33,8 +33,22 @@ const ContenedorRedesSociales = styled.div`
   justify-content: center;
 `;
 
-const ImageBackground = styled(BackgroundImage)`
-  height: 675px;
+const FigCationStyled = styled.figcaption`
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #0c2be8;
+  font-weight: bold;
+  text-align: center;
+`;
+
+const ImagenContainer = styled.div`
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 const SobreMi = ({location}) => {
@@ -43,7 +57,7 @@ const SobreMi = ({location}) => {
       puente: file(relativePath: {eq: "puente.jpg"}) {
         relativePath
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 600, maxHeight: 800) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -58,7 +72,6 @@ const SobreMi = ({location}) => {
       }
     }
   `);
-  console.log(puente);
 
   return (
     <Layout location={location}>
@@ -66,7 +79,8 @@ const SobreMi = ({location}) => {
       <ContenedorBlog>
         <AticuloTitle>Sobre mi</AticuloTitle>
         <DateParrafo>29 de Abril de 2020</DateParrafo>
-        <Image fluid={sentado.childImageSharp.fluid} fadeIn="soft" />
+        <Image fluid={sentado.childImageSharp.fluid} fadeIn={true} />
+        <FigCationStyled>Lago Liyn Elsi, Gales</FigCationStyled>
         <p>
           Hola de nuevo, Terminé mis estudios de **Desarrollador de aplicaciones
           web** allá por el 2018. Antes ya había hecho algún que otro curso
@@ -142,11 +156,15 @@ const SobreMi = ({location}) => {
           como desarrollador JavaScript acaba de comenzar y espero no perder las
           ganas que me hacen profundizar más y más en este precioso lenguaje.
         </p>
-        <Image
-          fluid={puente.childImageSharp.fluid}
-          alt="Betws-y-Coed, Gales"
-          fadeIn="soft"
-        />
+        <ImagenContainer>
+          <Image
+            fluid={puente.childImageSharp.fluid}
+            alt="Betws-y-Coed, Gales"
+            fadeIn={true}
+          />
+          <FigCationStyled>Betws y Coed</FigCationStyled>
+        </ImagenContainer>
+
         <p>
           Ahora ando centrado en mejorar mis habilidades técnicas, estudiando
           mucho y comenzando a realizar proyectos personales, como este blog

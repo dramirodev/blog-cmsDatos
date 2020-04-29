@@ -9,7 +9,8 @@ const BarraNavegacion = styled.nav`
   justify-content: center;
   max-width: 60rem;
   min-width: 30rem;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
+  margin-top: 1rem;
 
   @media (min-width: 468px) {
     justify-content: flex-start;

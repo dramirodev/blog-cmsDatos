@@ -53,10 +53,11 @@ export const StyledLink = styled.div`
 `;
 
 export const StyledLinkBio = styled.a`
-  color: #0092db;
+  color: #003d5c;
 
   &:hover {
     text-decoration: underline;
+    color: #0092db;
   }
 `;
 

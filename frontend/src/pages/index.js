@@ -22,7 +22,7 @@ const IndexPage = () => {
       <SEO
         title="Inicio"
         image={{
-          src: logo.relativePath,
+          src: logo.childImageSharp.fixed.src,
           height: 155,
           width: 150,
         }}

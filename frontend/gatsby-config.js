@@ -4,7 +4,9 @@ module.exports = {
     description:
       'Blog personal de David Ramiro diseñado utilizando React Gatsby ',
     siteUrl: 'https://www.davidramiro.com',
-    author: 'M. David Ramiro',
+    author: {
+      name: 'M. David Ramiro',
+    summary: 'Aprendiz de desarrollador web, enamorado de JavaScript'},
     image: './static/david.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@dramirobarragan',
   },

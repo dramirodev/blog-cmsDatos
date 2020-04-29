@@ -27,6 +27,7 @@ const NavItem = styled(Link)`
   padding: 0px 10px;
   color: #272727;
   letter-spacing: 1px;
+  text-decoration: none !important;
 
   &:hover {
     background-color: #0092db;

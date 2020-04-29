@@ -1,26 +1,25 @@
 import {graphql, useStaticQuery} from 'gatsby';
 
 const useArticulos = () => {
+  const listadoArticulos = [];
   const articulos = useStaticQuery(graphql`
     {
-      articulos: allDatoCmsArticulo {
+      articulo: allDatoCmsArticulo {
         edges {
           node {
             categoria
-            contenidoNode {
-              childMarkdownRemark {
-                html
-              }
-            }
             id
             titulo
-            resumen
             meta {
               createdAt(formatString: "DD-MMMM-YYYY", locale: "es")
             }
-            imagen {
-              fluid {
-                srcSet
+            contenidoNode {
+              childMarkdownRemark {
+                excerpt(format: PLAIN, pruneLength: 160)
+                timeToRead
+                wordCount {
+                  words
+                }
               }
             }
           }
@@ -29,7 +28,20 @@ const useArticulos = () => {
     }
   `);
 
-  return articulos.articulos.edges;
+  articulos.articulo.edges.forEach(article => {
+    listadoArticulos.push({
+      id: article.node.id,
+      titulo: article.node.titulo,
+      categoria: article.node.categoria,
+      fecha: article.node.meta.createdAt,
+      resumen: article.node.contenidoNode.childMarkdownRemark.excerpt,
+      timeToRead: article.node.contenidoNode.childMarkdownRemark.timeToRead,
+      numeroPalabras:
+        article.node.contenidoNode.childMarkdownRemark.wordCount.words,
+    });
+  });
+
+  return listadoArticulos;
 };
 
 export default useArticulos;

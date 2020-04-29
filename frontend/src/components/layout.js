@@ -63,6 +63,7 @@ const Layout = props => {
 
           a {
             text-decoration: none;
+            color: #0092db;
           }
 
           img {

@@ -72,6 +72,10 @@ const Paginas = ({location, data}) => {
               display: block;
               margin: 0 auto;
             }
+
+            a {
+              color: #0092db;
+            }
           `}
           dangerouslySetInnerHTML={{
             __html: pagina.contenidoNode.childMarkdownRemark.html,

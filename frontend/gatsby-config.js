@@ -4,6 +4,8 @@ module.exports = {
     description: 'Blog personal diseñado utilizando React Gatsby ',
     siteUrl: 'https://www.davidramiro.com',
     author: 'M. David Ramiro',
+    image: 'src/assets/images/david.png', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@dramirobarragan',
   },
   plugins: [
     'gatsby-plugin-emotion',

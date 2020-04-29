@@ -82,7 +82,8 @@ const AvatarNavegacion = styled(Image)`
   margin-right: 1rem;
 `;
 
-const Nav = ({location}) => {
+const Nav = ({ location }) => {
+
   const {logo, totalArticulos} = useStaticQuery(graphql`
     query {
       logo: file(relativePath: {eq: "david.png"}) {

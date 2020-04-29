@@ -99,12 +99,12 @@ const Nav = ({location}) => {
 
   return (
     <BarraNavegacion>
-      {location.pathname !== '/' && (
+      {location && location.pathname !== '/' ? (
         <AvatarNavegacion
           fluid={logo.childImageSharp.fluid}
           alt="Avatar barra de navegación"
         />
-      )}
+      ) : null}
       <NavItem to="/" activeClassName={'pagina-actual'}>
         Inicio
       </NavItem>

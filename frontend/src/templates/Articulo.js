@@ -3,7 +3,6 @@ import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import styled from '@emotion/styled';
 import SEO from '../components/seo';
-import useObtenerImagenDeArticulo from '../hooks/useObtenerImagenDeArticulo';
 
 export const articuloData = graphql`
   query($id: String!) {

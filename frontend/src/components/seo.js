@@ -20,7 +20,9 @@ function SEO({description, lang, meta, title, image: metaImage}) {
           siteMetadata {
             title
             description
-            author
+            author {
+              name
+            }
             image
             twitterUsername
             siteUrl
@@ -31,10 +33,9 @@ function SEO({description, lang, meta, title, image: metaImage}) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const image =
-    metaImage && metaImage.src
-      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
-      : null;
+  const imagen = metaImage
+    ? `${site.siteMetadata.siteUrl}/${metaImage.src}`
+    : '../../static/david.png';
 
   const canonical = `${site.siteMetadata.siteUrl}${location.pathname}`;
 
@@ -109,11 +110,7 @@ function SEO({description, lang, meta, title, image: metaImage}) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author.name,
         },
         {
           name: `twitter:title`,
@@ -133,7 +130,7 @@ function SEO({description, lang, meta, title, image: metaImage}) {
             ? [
                 {
                   property: 'og:image',
-                  content: image,
+                  content: imagen,
                 },
                 {
                   property: 'og:image:width',

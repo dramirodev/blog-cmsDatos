@@ -1,5 +1,3 @@
-import React from 'react';
-
 const useObtenerImagenDeArticulo = articulo => {
   let imagen;
   articulo.contenidoNode.childMarkdownRemark.htmlAst.children.forEach(

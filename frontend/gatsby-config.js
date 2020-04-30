@@ -6,7 +6,8 @@ module.exports = {
     siteUrl: 'https://www.davidramiro.com',
     author: {
       name: 'M. David Ramiro',
-    summary: 'Aprendiz de desarrollador web, enamorado de JavaScript'},
+      summary: 'Aprendiz de desarrollador web, enamorado de JavaScript',
+    },
     image: './static/david.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@dramirobarragan',
   },
@@ -29,8 +30,8 @@ module.exports = {
         short_name: 'davidramiro.com',
         lang: 'es',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#003d5c',
+        theme_color: '#003d5c',
         display: 'minimal-ui',
         icon: 'src/assets/images/avatar-icon.png',
       },
@@ -44,6 +45,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        layout: require.resolve(`${__dirname}/src/components/layout.js`),
+      },
+    },
     {
       resolve: 'gatsby-plugin-offline',
       options: {

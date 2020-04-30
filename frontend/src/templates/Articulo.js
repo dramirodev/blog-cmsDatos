@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
-import styled from '@emotion/styled';
 import SEO from '../components/seo';
+import {ContenedorBlog, AticuloTitle, DateParrafo} from '../styles/styles';
 
 export const articuloData = graphql`
   query($id: String!) {
@@ -34,27 +34,7 @@ export const articuloData = graphql`
   }
 `;
 
-const ContenedorBlog = styled.div`
-  margin-top: 6rem;
-  text-align: left !important;
-  width: 100%;
-`;
-
-const AticuloTitle = styled.h1`
-  color: #0092db;
-  font-weight: 900;
-  font-size: 4rem;
-  font-family: 'Montserrat', sans-serif;
-`;
-const DateParrafo = styled.p`
-  font-size: 1.35rem;
-  line-height: 1.75rem;
-  display: block;
-  margin-bottom: 1.75rem;
-  margin-top: -1.4rem;
-`;
-
-const Articulo = ({location, data}) => {
+const Articulo = ({ data}) => {
   const {articulo, logo} = data;
   const imagen = articulo.imagen.fluid
     ? articulo.imagen.fluid
@@ -65,7 +45,7 @@ const Articulo = ({location, data}) => {
       };
 
   return (
-    <Layout location={location}>
+    <Layout>
       <SEO title={articulo.titulo} imagen={imagen} />
       <ContenedorBlog>
         <AticuloTitle>{articulo.titulo}</AticuloTitle>

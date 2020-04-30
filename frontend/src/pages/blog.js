@@ -3,7 +3,12 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import useArticulos from '../hooks/useArticulos';
 import urlSlug from 'url-slug';
-import {TituloArticulo, ContenedorBlog, DateParrafo} from '../styles/styles';
+import {
+  TituloArticulo,
+  ContenedorBlog,
+  DateParrafo,
+  PostContainer,
+} from '../styles/styles';
 
 const Blog = () => {
   const articulos = useArticulos();
@@ -13,13 +18,13 @@ const Blog = () => {
       <SEO title="Blog" />
       <ContenedorBlog>
         {articulos.map(articulo => (
-          <div key={articulo.id}>
+          <PostContainer key={articulo.id}>
             <TituloArticulo to={`/blog/${urlSlug(articulo.titulo)}`}>
               {articulo.titulo}
             </TituloArticulo>
             <DateParrafo>{articulo.fecha}</DateParrafo>
             <p>{articulo.resumen}</p>
-          </div>
+          </PostContainer>
         ))}
       </ContenedorBlog>
     </Layout>

@@ -33,8 +33,9 @@ const InfoUsuario = () => {
         css={css`
           font-weight: bold;
           margin: 0;
-          color: #0092db;
-          letter-spacing: 0.18em;
+          color: #003d5c;
+          letter-spacing: 0.05em;
+          text-align: center;
         `}
       >
         Desarrollador de aplicaciones web

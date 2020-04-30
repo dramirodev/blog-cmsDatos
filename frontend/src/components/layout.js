@@ -17,7 +17,7 @@ const Layout = props => {
           body {
             font-size: 1.6rem;
             line-height: 2;
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Merriweather', serif;
             color: #272727;
             letter-spacing: 0.015em;
             word-spacing: 0.001em;
@@ -45,7 +45,7 @@ const Layout = props => {
           }
 
           h3 {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Merriweather', serif;
           }
 
           ul {

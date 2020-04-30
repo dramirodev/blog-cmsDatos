@@ -12,7 +12,7 @@ const useObtenerImagenDeArticulo = articulo => {
       }
     },
   );
-  console.log(imagen);
+
 
   return imagen.properties.src;
 };

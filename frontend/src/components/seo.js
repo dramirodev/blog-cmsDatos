@@ -56,7 +56,7 @@ function SEO({description, lang, meta, title, image: metaImage}) {
               {
                 rel: 'stylesheet',
                 href:
-                  'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+                  'https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Montserrat:ital,wght@0,700;0,900;1,900&display=swap',
               },
               {
                 rel: 'stylesheet',
@@ -73,7 +73,7 @@ function SEO({description, lang, meta, title, image: metaImage}) {
               {
                 rel: 'stylesheet',
                 href:
-                  'https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap',
+                  'https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Montserrat:ital,wght@0,700;0,900;1,900&display=swap',
               },
               {
                 rel: 'stylesheet',

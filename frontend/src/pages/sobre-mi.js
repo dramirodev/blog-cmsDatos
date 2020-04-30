@@ -3,52 +3,15 @@ import {useStaticQuery, graphql} from 'gatsby';
 import Image from 'gatsby-image';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import styled from '@emotion/styled';
 import ListadoRedesSociales from '../components/ListadoRedesSociales';
-
-const ContenedorBlog = styled.div`
-  margin-top: 6rem;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 2rem;
-`;
-
-const AticuloTitle = styled.h1`
-  color: #0092db;
-  font-weight: 900;
-  font-size: 4rem;
-  font-family: 'Montserrat', sans-serif;
-`;
-const DateParrafo = styled.p`
-  font-size: 1.35rem;
-  line-height: 1.75rem;
-  display: block;
-  margin-bottom: 1.75rem;
-  margin-top: -1.4rem;
-`;
-const ContenedorRedesSociales = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
-const FigCationStyled = styled.figcaption`
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #0c2be8;
-  font-weight: bold;
-  text-align: center;
-`;
-
-const ImagenContainer = styled.div`
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    width: 50%;
-  }
-`;
+import {
+  AticuloTitle,
+  ContenedorBlog,
+  DateParrafo,
+  FigCationStyled,
+  ImagenContainer,
+  ContendorRedesSociales,
+} from '../styles/styles';
 
 const SobreMi = () => {
   const {puente, sentado, logo} = useStaticQuery(graphql`
@@ -92,11 +55,11 @@ const SobreMi = () => {
         <Image fluid={sentado.childImageSharp.fluid} fadeIn={true} />
         <FigCationStyled>Lago Liyn Elsi, Gales</FigCationStyled>
         <p>
-          Hola de nuevo, Terminé mis estudios de **Desarrollador de aplicaciones
-          web** allá por el 2018. Antes ya había hecho algún que otro curso
-          sobre la materia, pero no me lo había planteado de manera profesional,
-          simplemente era una pasión con la que disfrutaba en mis ratos libres.
-          Gracias{' '}
+          Hola de nuevo, Terminé mis estudios de{' '}
+          <strong>Desarrollador de aplicaciones web</strong> allá por el 2018.
+          Antes ya había hecho algún que otro curso sobre la materia, pero no me
+          lo había planteado de manera profesional, simplemente era una pasión
+          con la que disfrutaba en mis ratos libres. Gracias{' '}
           <a
             href="https://www.linkedin.com/in/miguelangellopezharillo/"
             target="_blanck"
@@ -181,9 +144,9 @@ const SobreMi = () => {
           desarrollado en Gatsby. Me he marcado como meta aprender NodeJs y
           convertirme en desarrollador fullstack.
         </p>
-        <ContenedorRedesSociales>
+        <ContendorRedesSociales>
           <ListadoRedesSociales />
-        </ContenedorRedesSociales>
+        </ContendorRedesSociales>
       </ContenedorBlog>
     </Layout>
   );

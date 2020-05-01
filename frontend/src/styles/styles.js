@@ -136,6 +136,7 @@ export const ContendorRedesSociales = styled.div`
   text-align: center;
   justify-content: space-between;
   width: 40%;
+  max-width: 40rem;
   margin: 0 auto;
 
   @media (min-width: 768px) {

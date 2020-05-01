@@ -63,11 +63,6 @@ function SEO({description, lang, meta, title, image: metaImage}) {
                 href:
                   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
               },
-              {
-                rel: 'stylesheet',
-                href:
-                  'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
-              },
             ]
           : [
               {
@@ -79,11 +74,6 @@ function SEO({description, lang, meta, title, image: metaImage}) {
                 rel: 'stylesheet',
                 href:
                   'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
-              },
-              {
-                rel: 'stylesheet',
-                href:
-                  'https://pro.fontawesome.com/releases/v5.10.0/css/all.css',
               },
             ]
       }

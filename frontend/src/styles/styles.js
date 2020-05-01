@@ -134,9 +134,9 @@ const animacionRelleno = keyframes`
 export const ContendorRedesSociales = styled.div`
   display: flex;
   text-align: center;
-  justify-content: space-between;
-  width: 40%;
-  max-width: 40rem;
+  justify-content: center;
+  max-width: 60rem;
+  min-width: 40rem;
   margin: 0 auto;
 
   @media (min-width: 768px) {
@@ -152,13 +152,13 @@ export const ContenedorIcon = styled.button`
   min-height: 3.6rem;
   background-color: #f1f1f1;
   border-radius: 30%;
-  margin-top: 2rem;
+  margin-right: 2rem;
   color: #272727;
   overflow: hidden;
   cursor: pointer;
   border: none;
 
-  &:hover i {
+  &:hover svg {
     transform: scale(1.3);
     color: #f1f1f1;
   }

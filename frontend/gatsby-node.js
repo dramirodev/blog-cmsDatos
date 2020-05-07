@@ -10,17 +10,12 @@ const urlSlug = require('url-slug');
 exports.createPages = async ({actions, graphql, reporter}) => {
   const resultado = await graphql(`
     {
-      allDatoCmsArticulo {
+      allMarkdownRemark {
         nodes {
+          frontmatter {
+            titulo
+          }
           id
-          titulo
-        }
-      }
-
-      paginas: allDatoCmsPagina {
-        nodes {
-          id
-          titulo
         }
       }
     }
@@ -31,25 +26,12 @@ exports.createPages = async ({actions, graphql, reporter}) => {
   }
 
   // Si hay resultados generar los archivos estáticos
-
-  const articulos = resultado.data.allDatoCmsArticulo.nodes;
-  const paginas = resultado.data.paginas.nodes;
-
-  // crear templates para paginas
-  paginas.forEach(pagina => {
-    actions.createPage({
-      path: urlSlug(pagina.titulo),
-      component: require.resolve('./src/templates/Paginas.js'),
-      context: {
-        id: pagina.id,
-      },
-    });
-  });
+  const articulosLocales = resultado.data.allMarkdownRemark.nodes;
 
   // Crear templates de articulos
-  articulos.forEach(articulo => {
+  articulosLocales.forEach(articulo => {
     actions.createPage({
-      path: `/blog/${urlSlug(articulo.titulo)}`,
+      path: `/blog/${urlSlug(articulo.frontmatter.titulo)}`,
       component: require.resolve('./src/templates/Articulo.js'),
       context: {
         id: articulo.id,

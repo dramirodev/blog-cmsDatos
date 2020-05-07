@@ -9,7 +9,7 @@ const MenuNavegacion = () => {
 
   const {totalArticulos} = useStaticQuery(graphql`
     query {
-      totalArticulos: allDatoCmsArticulo {
+      totalArticulos: allMarkdownRemark {
         totalCount
       }
     }

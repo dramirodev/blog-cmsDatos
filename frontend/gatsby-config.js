@@ -21,7 +21,35 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -36,15 +64,20 @@ module.exports = {
         icon: 'src/assets/images/avatar-icon.png',
       },
     },
+    // {
+    //   resolve: `gatsby-source-datocms`,
+    //   options: {
+    //     apiToken: `2c58d65eedb1dd15701f5c959860d6`,
+    //     previewMode: false,
+    //     disableLiveReload: false,
+    //   },
+    // },
     {
-      resolve: `gatsby-source-datocms`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        apiToken: `2c58d65eedb1dd15701f5c959860d6`,
-        previewMode: false,
-        disableLiveReload: false,
+        plugins: [`gatsby-remark-prismjs`],
       },
     },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-transition-link`,
       options: {
@@ -62,27 +95,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // The property ID; the tracking code won't be generated without it
         trackingId: 'UA-112055111-2',
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
-        // Setting this parameter is optional
         anonymize: true,
-        // Setting this parameter is also optional
         respectDNT: true,
-        // Avoids sending pageview hits from custom paths
         exclude: ['/preview/**', '/do-not-track/me/too/'],
-        // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
-        // Enables Google Optimize using your container Id
         optimizeId: 'GTM-PR4NNZJ',
-        // Enables Google Optimize Experiment ID
         experimentId: 'v6vJtt3KR5SaeG6L6sQz8Q',
-        // Set Variation ID. 0 for original 1,2,3....
-        //variationId: 'YOUR_GOOGLE_OPTIMIZE_VARIATION_ID',
-        // Defers execution of google analytics script after page load
         defer: false,
-        // Any additional optional fields
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: 'davidramiro.com',

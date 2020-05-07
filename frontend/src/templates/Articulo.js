@@ -1,26 +1,29 @@
 import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
+import Image from 'gatsby-image';
 import SEO from '../components/seo';
 import {ContenedorBlog, AticuloTitle, DateParrafo} from '../styles/styles';
 
-export const articuloData = graphql`
+export const ArticulosLocales = graphql`
   query($id: String!) {
-    articulo: datoCmsArticulo(id: {eq: $id}) {
-      titulo
-      contenidoNode {
-        childMarkdownRemark {
-          htmlAst
-          html
+    articulo: markdownRemark(id: {eq: $id}) {
+      frontmatter {
+        titulo
+        date(formatString: "DD/MM/YY")
+        featured {
+          childImageSharp {
+            fluid(maxWidth: 750) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
-      meta {
-        createdAt(locale: "es", formatString: "DD/MM/YYYY")
-      }
-      imagen {
-        fluid {
-          srcSet
-        }
+      html
+      id
+      timeToRead
+      wordCount {
+        words
       }
     }
     logo: file(relativePath: {eq: "david.png"}) {
@@ -34,25 +37,29 @@ export const articuloData = graphql`
   }
 `;
 
-const Articulo = ({ data}) => {
+const Articulo = ({data}) => {
   const {articulo, logo} = data;
-  const imagen = articulo.imagen.fluid
-    ? articulo.imagen.fluid
-    : {
-        src: logo.relativePath,
-        height: 155,
-        width: 150,
-      };
+  let imagen;
+  if (articulo.imagen) {
+    imagen = articulo.imagen.fluid;
+  } else {
+    imagen = {
+      src: logo.relativePath,
+      height: 155,
+      width: 150,
+    };
+  }
 
   return (
     <Layout>
       <SEO title={articulo.titulo} imagen={imagen} />
       <ContenedorBlog>
-        <AticuloTitle>{articulo.titulo}</AticuloTitle>
-        <DateParrafo>{articulo.meta.createdAt}</DateParrafo>
+        <AticuloTitle>{articulo.frontmatter.titulo}</AticuloTitle>
+        <DateParrafo>{articulo.frontmatter.date}</DateParrafo>
+        <Image fluid={articulo.frontmatter.featured.childImageSharp.fluid} />
         <div
           dangerouslySetInnerHTML={{
-            __html: articulo.contenidoNode.childMarkdownRemark.html,
+            __html: articulo.html,
           }}
         />
       </ContenedorBlog>{' '}

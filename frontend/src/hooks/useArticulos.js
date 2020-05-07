@@ -4,23 +4,20 @@ const useArticulos = () => {
   const listadoArticulos = [];
   const articulos = useStaticQuery(graphql`
     {
-      articulo: allDatoCmsArticulo {
+      articulo: allMarkdownRemark(
+        sort: {fields: frontmatter___date, order: DESC}
+      ) {
         edges {
           node {
-            categoria
             id
-            titulo
-            meta {
-              createdAt(formatString: "DD-MMMM-YYYY", locale: "es")
+            frontmatter {
+              titulo
+              date(formatString: "DD-MM-YYYY", locale: "es")
             }
-            contenidoNode {
-              childMarkdownRemark {
-                excerpt(format: PLAIN, pruneLength: 160)
-                timeToRead
-                wordCount {
-                  words
-                }
-              }
+            excerpt(format: PLAIN, pruneLength: 160)
+            timeToRead
+            wordCount {
+              words
             }
           }
         }
@@ -29,16 +26,17 @@ const useArticulos = () => {
   `);
 
   articulos.articulo.edges.forEach(article => {
-    listadoArticulos.push({
-      id: article.node.id,
-      titulo: article.node.titulo,
-      categoria: article.node.categoria,
-      fecha: article.node.meta.createdAt,
-      resumen: article.node.contenidoNode.childMarkdownRemark.excerpt,
-      timeToRead: article.node.contenidoNode.childMarkdownRemark.timeToRead,
-      numeroPalabras:
-        article.node.contenidoNode.childMarkdownRemark.wordCount.words,
-    });
+    if (article.node.frontmatter.titulo) {
+      listadoArticulos.push({
+        id: article.node.id,
+        titulo: article.node.frontmatter.titulo,
+        fecha: article.node.frontmatter.date,
+        resumen: article.node.excerpt,
+        timeToRead: article.node.timeToRead,
+        numeroPalabras: article.node.wordCount.words,
+        imagen: article.node.frontmatter.featured,
+      });
+    }
   });
 
   return listadoArticulos;

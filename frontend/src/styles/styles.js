@@ -3,11 +3,11 @@ import {keyframes} from '@emotion/core';
 import Image from 'gatsby-image';
 import {Link} from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-
+import Colores from './colores';
 //TODO Separar estilos por componentes y revisar los comunes o pueden serlo
 
 export const TituloArticulo = styled(Link)`
-  color: #003d5c;
+  color: ${Colores.primary};
   font-weight: 900;
   font-size: 2rem;
   font-family: 'Montserrat', sans-serif;
@@ -59,11 +59,11 @@ export const StyledLink = styled.div`
 `;
 
 export const StyledLinkBio = styled.a`
-  color: #003d5c;
+  color: ${Colores.primary};
 
   &:hover {
     text-decoration: underline;
-    color: #0092db;
+    color: ${Colores.secondary};
   }
 `;
 
@@ -89,7 +89,7 @@ export const ContenedorBlog = styled.div`
 `;
 
 export const AticuloTitle = styled.h1`
-  color: #003d5c;
+  color: ${Colores.primary};
   font-weight: 900;
   font-size: 2rem;
 
@@ -101,7 +101,7 @@ export const AticuloTitle = styled.h1`
 export const FigCationStyled = styled.figcaption`
   font-size: 12px;
   letter-spacing: 1px;
-  color: #003d5c;
+  color: ${Colores.primary};
   font-weight: bold;
   text-align: center;
 `;
@@ -150,17 +150,17 @@ export const ContenedorIcon = styled.button`
   position: relative;
   min-width: 3.6rem;
   min-height: 3.6rem;
-  background-color: #f1f1f1;
+  background-color: ${Colores.white};
   border-radius: 30%;
   margin-right: 2rem;
-  color: #272727;
+  color: ${Colores.black};
   overflow: hidden;
   cursor: pointer;
   border: none;
 
   &:hover svg {
     transform: scale(1.3);
-    color: #f1f1f1;
+    color: ${Colores.white};
   }
 
   &:before {
@@ -168,7 +168,7 @@ export const ContenedorIcon = styled.button`
     position: absolute;
     width: 120%;
     height: 120%;
-    background-color: #003d5c;
+    background-color: ${Colores.primary};
     left: -110%;
     top: 90%;
     transform: rotate(45deg);
@@ -224,12 +224,12 @@ export const NavItem = styled(AniLink)`
   transition: all 0.5s;
   font-size: 1.4rem;
   padding: 0px 10px;
-  color: #272727;
+  color: ${Colores.black};
   letter-spacing: 1px;
   text-decoration: none !important;
 
   &:hover {
-    background-color: #003d5c;
+    background-color: ${Colores.primary};
     color: white;
   }
   &:last-of-type {
@@ -243,7 +243,7 @@ export const NavItem = styled(AniLink)`
     left: 8px;
     width: 12px;
     height: 12px;
-    border: 1px solid #003d5c;
+    border: 1px solid ${Colores.primary};
     border-width: 0 0 2px 2px;
     opacity: 0;
     transition: all 0.3s;
@@ -255,7 +255,7 @@ export const NavItem = styled(AniLink)`
     right: -8px;
     width: 12px;
     height: 12px;
-    border: 2px solid #003d5c;
+    border: 2px solid ${Colores.primary};
     border-width: 2px 2px 0 0;
     opacity: 0;
     transition: all 0.3s;
@@ -273,7 +273,7 @@ export const NavItem = styled(AniLink)`
   }
 
   &.pagina-actual {
-    background-color: #003d5c;
+    background-color: ${Colores.primary};
     color: white;
   }
 `;

@@ -4,12 +4,12 @@ import {useLocation} from '@reach/router';
 import AvatarNavegacion from './AvatarNavegacion';
 import {BarraNavegacion, NavItem} from '../styles/styles';
 
-const Nav = () => {
+const MenuNavegacion = () => {
   const location = useLocation();
 
   const {totalArticulos} = useStaticQuery(graphql`
     query {
-      totalArticulos: allDatoCmsArticulo {
+      totalArticulos: allMarkdownRemark {
         totalCount
       }
     }
@@ -43,4 +43,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default MenuNavegacion;

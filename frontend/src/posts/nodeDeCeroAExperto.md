@@ -9,6 +9,15 @@ Ha costado, pero al final he conseguido terminar el curso de [Fernando Herrera](
 
 El profesor va empezando desde lo más básico para ir progresando y asentar conocimientos llegando, algo que me ha gustado mucho, a explicar el patrón Singleton en clases hechas en TypeScript. No puedo decir que ahora sea un experto en Node, como dice el nombre del curso. Pero si me ha hecho familiarizarme con bastante confianza.
 
+Contenido del curso:
+1. [Node](https://nodejs.org/es/)
+2. Json Web Tokens
+3. Google SignIn
+4. Manejo de Archivos
+5. [Sockets](https://socket.io/)
+6. Conexión a BBDD
+7. ...
+
 
 **Pros**:
 Un curso muy completo, además dado por un profesor que te transmite ganas de continuar.

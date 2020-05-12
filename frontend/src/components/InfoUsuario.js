@@ -40,7 +40,15 @@ const InfoUsuario = () => {
       >
         Desarrollador de aplicaciones web
       </p>
-      <p>
+      <p
+        css={css`
+          font-size: 1.4rem;
+          text-align: center;
+          @media (min-width: 468px) {
+            font-size: 1.6rem;
+          }
+        `}
+      >
         Hola, durante los últimos años he trabajado con tecnologías JavaScript.
         Lenguaje del que soy un ferviente admirador. He realizado proyectos
         tanto en{' '}

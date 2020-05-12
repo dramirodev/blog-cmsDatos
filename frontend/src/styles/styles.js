@@ -80,7 +80,7 @@ export const ContenedorBlog = styled.div`
   margin-bottom: 2rem;
 
   p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
     @media (min-width: 468px) {
       font-size: 1.6rem;
@@ -143,7 +143,7 @@ export const ContendorRedesSociales = styled.div`
     width: 50%;
   }
 `;
-export const ContenedorIcon = styled.button`
+export const ContenedorIcon = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;

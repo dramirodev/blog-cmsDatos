@@ -1,5 +1,5 @@
 import React from 'react';
-import {ContendorRedesSociales, ContenedorIcon, Icon} from '../styles/styles';
+import {ContendorRedesSociales, ContenedorIcon} from '../styles/styles';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   faLinkedinIn,
@@ -14,8 +14,6 @@ const ListadoRedesSociales = () => (
       target="_blank"
       aria-label="Botón Linkedin"
     >
-      {/* <Icon className="fab fa-linkedin-in" />
-       */}
       <FontAwesomeIcon icon={faLinkedinIn} />
     </ContenedorIcon>
     <ContenedorIcon

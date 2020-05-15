@@ -4,11 +4,11 @@ date: 2020-05-15
 featured: "../assets/images/pathReactFrontEnd.png"
 ---
 
-Ha sido la primera parte de cursos que he realizado en la web [FrontendMasters](https://frontendmasters.com/), tenía buenas referencias sobre esta web de cursos online, pero hasta ahora había tenido dudas de hacer sus cursos por miedo al idioma.
+Ha sido la primera parte de cursos que he realizado en la web [FrontendMasters](https://frontendmasters.com/), tenía buenas referencias sobre esta web , pero hasta ahora había tenido dudas por miedo al idioma.
 
-Mi lengua materna, es el español, y aunque hablo un poco de inglés enfrentarte a un workshop de 4 o 5 horas en una lengua que no es la tuya y que no dominas da un poco de miedo. No sé muy bien, un buen día me levanté y donde antes veía miedo, ahora vi una oportunidad. No solo aprendería conceptos nuevos de JavaScript, ReactJs, NodeJs, CSS etc etc. Si no que además pondría a prueba mis conocimientos de inglés y los mejoraría.
+Mi lengua materna, es el español, y aunque hablo un poco de inglés enfrentarte a un workshop de 4 o 5 horas en una lengua que no es la tuya y que no dominas da un poco de respeto. No sé muy bien, un buen día me levanté y donde antes veía miedo, ahora vi una oportunidad. Aprendería conceptos nuevos de JavaScript, ReactJs, NodeJs, CSS etc etc. Y además pondría a prueba mis conocimientos de inglés y los mejoraría.
 
-Y el primero que comencé fue el path de ReactJs, los path son cursos especializados en una determinada tecnología, comienzan habitualmente por un curso de introducción y luego van añadiendo otros que profundizan más.
+Y el primero que comencé fue el path de ReactJs, los path son cursos especializados en una determinada tecnología, comienzan habitualmente por un curso de introducción y luego van añadiendo otros que profundizan más en la materia.
 
 El path de ReactJs está formado por:
 
@@ -24,7 +24,7 @@ Luego utiliza el patrón reducer, aunque menciona redux, trabaja con el hook use
 
 Consumo de datos de una API, customHooks, thunks entre otras muchas cosas
 
-En resumidas cuentas, un curso muy interesante que por ejemplo en estos momentos estoy volviendo a ver y aplicando sus consejos en una aplicación pequeña que me he creado donde consumo los datos de una Api.
+En resumidas cuentas, un curso muy interesante que por ejemplo en estos momentos estoy volviendo a ver y aplicando sus consejos en una aplicación pequeña que he creado donde consumo los datos de una Api.
 
 Es muy recomendable, y bueno, sobre el inglés... Lo cierto es que cuesta, sin subtítulos creo que sería incapaz de seguirlos y soy consciente que algunas cosas se escapan. Pero poco a poco voy notando que me es más fácil seguirlos, incluso alguna vez me he descubierto mirando el código de la pantalla sin prestarle atención a lo que decían por que comprendía, a mi manera, lo que estaban diciendo mientras picaba código. Ha sido muy satisfactorio tirarse a la piscina.
 

@@ -12,13 +12,13 @@ Y el primero que comencé fue el path de ReactJs, los path son cursos especializ
 
 El path de ReactJs está formado por:
 
-1. [Complete Intro to React, v5](https://frontendmasters.com/courses/complete-react-v5/) por Brian Holt
+1. [Complete Intro to React, v5](https://frontendmasters.com/courses/complete-react-v5/) por [Brian Holt](https://twitter.com/holtbt)
 2. [Intermediate React, v2 ](https://frontendmasters.com/courses/intermediate-react-v2/)por Brian Holt
-3. [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/) por Steve Kinney
+3. [State Management in Pure React, v2](https://frontendmasters.com/courses/pure-react-state/) por[ Steve Kinney](https://twitter.com/stevekinney)
 
 Ninguno de los tres tiene desperdicio, el primero te explica desde el funcionamiento de React más básico hasta conceptos como los hooks y su funcionamiento. El segundo curso también de Brian Holt, profundiza un poco más, contando las peculiaridades del lenguaje, la configuración de un proyecto etc.
 
-Y por ultimo el que a mi mas me ha gustado es el tercero **State Management in Pure React, v2** , te explica dos patrones básicos el primero él lo llama Prop-Drilling. Usando la Context API creamos un contexto en el que compartimos determinados valores que son accesibles en toda la aplicación. De esta manera, evitamos pasar props a los componentes, lo que permite evitar renders innecesarios de los componentes.
+Y por ultimo el que a mi mas me ha gustado es el tercero **State Management in Pure React, v2** , te explica dos patrones básicos el primero él lo llama Prop-Drilling. Usando la Context API creamos un contexto en el que compartimos determinados valores y funciones que son accesibles en toda la aplicación. De esta manera, evitamos pasar props a los componentes, lo que permite evitar renders innecesarios de los componentes.
 
 Luego utiliza el patrón reducer, aunque menciona redux, trabaja con el hook useReducer utilizando este patrón ganamos en performance y legibilidad del código. Consigues tener un state central, un código francamente limpio y un muy buen rendimiento de la app.
 

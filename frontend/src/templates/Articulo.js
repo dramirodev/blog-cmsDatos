@@ -41,8 +41,12 @@ export const ArticulosLocales = graphql`
 const Articulo = ({data}) => {
   const {articulo, logo} = data;
   let imagen;
-  if (articulo.imagen) {
-    imagen = articulo.imagen.fluid;
+  if (articulo.frontmatter.featured.childImageSharp) {
+    imagen = {
+      src: articulo.frontmatter.featured.childImageSharp.fluid.src,
+      height: 155,
+      width: 150,
+    };
   } else {
     imagen = {
       src: logo.relativePath,
@@ -51,11 +55,16 @@ const Articulo = ({data}) => {
     };
   }
 
+  console.log(
+    'articulo :>> ',
+    articulo.frontmatter.featured.childImageSharp.fluid.src,
+  );
+
   return (
     <Layout>
       <SEO
         title={articulo.frontmatter.titulo}
-        imagen={imagen}
+        image={imagen}
         description={articulo.excerpt}
       />
       <ContenedorBlog>

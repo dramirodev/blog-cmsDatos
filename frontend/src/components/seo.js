@@ -90,7 +90,7 @@ function SEO({description, lang, title, image}) {
         },
         {
           property: 'og:image',
-          content: imagen,
+          content: imagen.src,
         },
         {
           property: 'og:image:width',
@@ -118,7 +118,7 @@ function SEO({description, lang, title, image}) {
         },
         {
           name: `twitter:image`,
-          content: imagen,
+          content: imagen.src,
         },
       ]}
     />

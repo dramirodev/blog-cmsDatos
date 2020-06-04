@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import Image from 'gatsby-image';
-import SEO from '../components/seo';
+import SEO from '../components/Seo';
 import {ContenedorBlog, AticuloTitle, DateParrafo} from '../styles/styles';
 
 export const ArticulosLocales = graphql`
@@ -19,6 +19,7 @@ export const ArticulosLocales = graphql`
           }
         }
       }
+      excerpt(format: PLAIN, pruneLength: 160)
       html
       id
       timeToRead
@@ -52,7 +53,11 @@ const Articulo = ({data}) => {
 
   return (
     <Layout>
-      <SEO title={articulo.titulo} imagen={imagen} />
+      <SEO
+        title={articulo.frontmatter.titulo}
+        imagen={imagen}
+        description={articulo.excerpt}
+      />
       <ContenedorBlog>
         <AticuloTitle>{articulo.frontmatter.titulo}</AticuloTitle>
         <DateParrafo>{articulo.frontmatter.date}</DateParrafo>

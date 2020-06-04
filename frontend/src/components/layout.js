@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SEO from './Seo';
+import SEO from './seo';
 import {Global, css} from '@emotion/core';
 import Header from './Header';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import SEO from '../components/Seo';
+import SEO from '../components/seo';
 import useArticulos from '../hooks/useArticulos';
 import urlSlug from 'url-slug';
 import {

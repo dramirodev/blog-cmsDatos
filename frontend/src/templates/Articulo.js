@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import Image from 'gatsby-image';
-import SEO from '../components/Seo';
+import SEO from '../components/seo';
 import {ContenedorBlog, AticuloTitle, DateParrafo} from '../styles/styles';
 
 export const ArticulosLocales = graphql`
@@ -50,8 +50,8 @@ const Articulo = ({data}) => {
         src: logo.relativePath,
         height: 155,
         width: 150,
-    };
-  
+      };
+
   return (
     <Layout>
       <SEO

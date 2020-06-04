@@ -40,26 +40,18 @@ export const ArticulosLocales = graphql`
 
 const Articulo = ({data}) => {
   const {articulo, logo} = data;
-  let imagen;
-  if (articulo.frontmatter.featured.childImageSharp) {
-    imagen = {
-      src: articulo.frontmatter.featured.childImageSharp.fluid.src,
-      height: 155,
-      width: 150,
+  let imagen = articulo.frontmatter.featured.childImageSharp
+    ? {
+        src: articulo.frontmatter.featured.childImageSharp.fluid.src,
+        height: 155,
+        width: 150,
+      }
+    : {
+        src: logo.relativePath,
+        height: 155,
+        width: 150,
     };
-  } else {
-    imagen = {
-      src: logo.relativePath,
-      height: 155,
-      width: 150,
-    };
-  }
-
-  console.log(
-    'articulo :>> ',
-    articulo.frontmatter.featured.childImageSharp.fluid.src,
-  );
-
+  
   return (
     <Layout>
       <SEO

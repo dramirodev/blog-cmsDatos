@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'davidramiro.com',
     description:
-      'Blog personal de David Ramiro diseñado utilizando React Gatsby ',
+      'Soy desarrollador de aplicaciones web con tecnologías JavaScript.',
     siteUrl: 'https://www.davidramiro.com',
     author: {
       name: 'M. David Ramiro',

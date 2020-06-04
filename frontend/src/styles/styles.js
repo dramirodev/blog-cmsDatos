@@ -185,15 +185,15 @@ export const Icon = styled.i`
 `;
 
 const animacionAvatarInicio = keyframes`
-from{
-     top: -50px;
-     opacity: 0;
- }
+  from{
+    top: -50px;
+    opacity: 0;
+  }
 
- to{
-     top: .1rem;
-     opacity: 1;
- }
+  to{
+    top: .1rem;
+    opacity: 1;
+  }
 `;
 export const Container = styled.div`
   position: relative;

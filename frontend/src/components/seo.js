@@ -1,17 +1,10 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 import {useStaticQuery, graphql} from 'gatsby';
 import {useLocation} from '@reach/router';
 
-function SEO({description, lang, meta, title, image: metaImage}) {
+function SEO({description, lang, title, image}) {
   const location = useLocation();
   const {site} = useStaticQuery(
     graphql`
@@ -33,10 +26,7 @@ function SEO({description, lang, meta, title, image: metaImage}) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const imagen = metaImage
-    ? `${site.siteMetadata.siteUrl}/${metaImage.src}`
-    : '../../static/david.png';
-
+  const imagen = image || site.siteMetadata.image;
   const canonical = `${site.siteMetadata.siteUrl}${location.pathname}`;
 
   return (
@@ -95,8 +85,24 @@ function SEO({description, lang, meta, title, image: metaImage}) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: `og:url`,
+          content: canonical,
+        },
+        {
+          property: 'og:image',
+          content: imagen,
+        },
+        {
+          property: 'og:image:width',
+          content: imagen.width,
+        },
+        {
+          property: 'og:image:height',
+          content: imagen.height,
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
         },
         {
           name: `twitter:creator`,
@@ -112,37 +118,9 @@ function SEO({description, lang, meta, title, image: metaImage}) {
         },
         {
           name: `twitter:image`,
-          content: site.siteMetadata.image,
+          content: imagen,
         },
-      ]
-        .concat(
-          metaImage
-            ? [
-                {
-                  property: 'og:image',
-                  content: imagen,
-                },
-                {
-                  property: 'og:image:width',
-                  content: metaImage.width,
-                },
-                {
-                  property: 'og:image:height',
-                  content: metaImage.height,
-                },
-                {
-                  name: 'twitter:card',
-                  content: 'summary_large_image',
-                },
-              ]
-            : [
-                {
-                  name: 'twitter:card',
-                  content: 'summary',
-                },
-              ],
-        )
-        .concat(meta)}
+      ]}
     />
   );
 }
@@ -156,7 +134,6 @@ SEO.defaultProps = {
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
   image: PropTypes.shape({
     src: PropTypes.string.isRequired,
